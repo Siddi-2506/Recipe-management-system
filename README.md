@@ -15,11 +15,16 @@ An elegant and user-friendly Recipe Sharing Web Application that enables users t
 
 📂 Project Structure
 /recipe-management-system  
-│── Signup.html        # User authentication (Sign-up/Login)  
+│── Signup.html        # User authentication (Sign-up/Login)
+
 │── index.html        # To add new recipes 
+
 │── recipes.html       # To show the uploaded recipes only to the user who have uploaded 
+
 │── view_recipes.html       # To view all the recipes uploaded by every different users
+
 │── styles.css         # To add styles to add recipes page
+
 │── README.md        # Comprehensive project documentation  
 
 🔮 Future Enhancements 
