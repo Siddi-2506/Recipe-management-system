@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Sharing - Sign Up & Login</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff9966, #ff5e62);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .auth-container {
+            width: 380px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h2 {
+            color: #ff5e62;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            margin: 10px 0;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #ff5e62;
+            outline: none;
+            box-shadow: 0 0 5px rgba(255, 94, 98, 0.5);
+        }
+
+        button {
+            width: 100%;
+            background: linear-gradient(90deg, #ff5e62, #ff9966);
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(90deg, #ff9966, #ff5e62);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        p a {
+            color: #ff5e62;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        p a:hover {
+            color: #e5533d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="auth-container">
+        <!-- Login Form -->
+        <div class="form-box" id="login-box">
+            <h2>Welcome Back!</h2>
+            <p class="subtitle">Login to share and explore amazing recipes</p>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button type="submit" id="login-btn">Login</button>
+                <p>Don't have an account? <a href="#" id="toggle-link">Sign Up</a></p>
+            </form>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="form-box hidden" id="signup-box">
+            <h2>Join Our Community!</h2>
+            <p class="subtitle">Create an account and start sharing your best recipes</p>
+            <form id="signup-form">
+                <input type="text" id="signup-name" placeholder="Full Name" required>
+                <input type="email" id="signup-email" placeholder="Email" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <button type="submit" id="signup-btn">Sign Up</button>
+                <p>Already have an account? <a href="#" id="toggle-link-2">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Toggle between Login and Signup Forms
+        document.getElementById('toggle-link').onclick = function () {
+            document.getElementById('login-box').classList.toggle('hidden');
+            document.getElementById('signup-box').classList.toggle('hidden');
+        };
+
+        document.getElementById('toggle-link-2').onclick = function () {
+            document.getElementById('login-box').classList.toggle('hidden');
+            document.getElementById('signup-box').classList.toggle('hidden');
+        };
+
+        // Validate and Redirect for Login
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            let email = document.getElementById("login-email").value.trim();
+            let password = document.getElementById("login-password").value.trim();
+
+            if (email && password) {
+                window.location.href = "index.html"; // Redirect if all fields are filled
+            } else {
+                alert("Please fill in all fields.");
+            }
+        });
+
+        // Validate and Redirect for Signup
+        document.getElementById('signup-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            let name = document.getElementById("signup-name").value.trim();
+            let email = document.getElementById("signup-email").value.trim();
+            let password = document.getElementById("signup-password").value.trim();
+
+            if (name && email && password) {
+                window.location.href = "index.html"; // Redirect if all fields are filled
+            } else {
+                alert("Please fill in all fields.");
+            }
+        });
+    </script>
+</body>
+
+</html>
