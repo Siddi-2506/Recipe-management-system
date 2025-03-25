@@ -17,13 +17,25 @@ An elegant and user-friendly Recipe Sharing Web Application that enables users t
 /recipe-management-system  
 │── Signup.html        # User authentication (Sign-up/Login)
 
-│── index.html        # To add new recipes 
+│── Signup.css         # Adds styles to User authentication (Sign-up/Login)
 
-│── recipes.html       # To show the uploaded recipes only to the user who have uploaded 
+│── Signup.js          # Adds User authentication (Sign-up/Login)
 
-│── view_recipes.html       # To view all the recipes uploaded by every different users
+│── index.html         # To add new recipes
 
 │── styles.css         # To add styles to add recipes page
+
+│── recipes.html       # To show the uploaded recipes only to the user who have uploaded
+
+│── recipes.css        # Adds styles to all the uploaded recipes
+
+│── recipes.js         # Acts like a backenend to store the uploaded recipes
+
+│── view_recipes.html  # To view all the recipes uploaded by every different users
+
+│── view_recipes.css   # To add styles to view all the recipes uploaded by every different users
+
+│── view_recipes.js    # To store all the data uploaded and view it to other users who visit 
 
 │── README.md        # Comprehensive project documentation  
 
