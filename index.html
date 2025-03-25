@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Recipe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Add a New Recipe</h1>
+        <form id="recipe-form">
+            <input type="text" id="title" placeholder="Recipe Title" required>
+            <select id="category">
+                <option value="breakfast">Breakfast</option>
+                <option value="beverages">Beverages</option>
+                <option value="lunch">Lunch</option>
+                <option value="biryanis">Biryanis</option>
+                <option value="dinner">Dinner</option>
+                <option value="dessert">Dessert</option>
+                <option value="appetizers">Appetizers</option>
+                <option value="soups">Soups</option>
+                <option value="salads">Salads</option>
+                <option value="rolls">Rolls</option>
+            </select>
+            <textarea id="description" placeholder="Recipe Description" required></textarea>
+            <input type="file" id="image" accept="image/*">
+            <button type="submit">Add Recipe</button>
+        </form>
+        <a href="recipes.html">
+            <button style="background: green;">View Recipes</button>
+        </a>
+    </div>
+
+    <script>
+        document.getElementById("recipe-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const title = document.getElementById("title").value;
+            const category = document.getElementById("category").value;
+            const description = document.getElementById("description").value;
+            const imageInput = document.getElementById("image").files[0];
+
+            if (!title || !description) {
+                alert("Please enter a title and description.");
+                return;
+            }
+
+            let imageURL = "";
+            if (imageInput) {
+                const reader = new FileReader();
+                reader.readAsDataURL(imageInput);
+                reader.onload = function () {
+                    imageURL = reader.result;
+                    saveRecipe(title, category, description, imageURL);
+                };
+            } else {
+                saveRecipe(title, category, description, imageURL);
+            }
+
+            document.getElementById("recipe-form").reset();
+        });
+
+        function saveRecipe(title, category, description, imageURL) {
+            let recipes = localStorage.getItem("recipes") || "";
+            let newRecipe = `${title}|${category}|${description}|${imageURL};;`;
+            localStorage.setItem("recipes", recipes + newRecipe);
+
+            window.location.href = "recipes.html";
+        }
+    </script>
+</body>
+
+</html>
