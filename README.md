@@ -25,6 +25,8 @@ An elegant and user-friendly Recipe Sharing Web Application that enables users t
 
 │── styles.css         # To add styles to add recipes page
 
+│── index.js           # To add and remove new recipes
+
 │── recipes.html       # To show the uploaded recipes only to the user who have uploaded
 
 │── recipes.css        # Adds styles to all the uploaded recipes
